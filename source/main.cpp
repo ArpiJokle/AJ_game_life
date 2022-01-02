@@ -1,22 +1,18 @@
-#include <vector>
-#include <SFML/Graphics.hpp>
-int main(){
-    sf::RenderWindow window(sf::VideoMode(200, 200), "!");
-    sf::CircleShape shape(100.f);
-    shape.setFillColor(sf::Color::Red);
+#include "main.h"
 
-    while (window.isOpen())
-    {
+void Cells_initialize(std::vector < std::vector < Cell > > &Cells){
+    for(int i=0; i<W_HEIGHT/40; i++)
+        for(int j=0; j<W_WIDTH/40; j++)
+            Cells[i][j] = Cell(i, j);
+}
+
+int main(){
+    Cells_initialize(Cells);
+    while(window.isOpen()){
         sf::Event event;
         while (window.pollEvent(event))
-        {
-            if (event.type == sf::Event::Closed)
-                window.close();
-        }
-
-        window.clear();
-        window.draw(shape);
-        window.display();
+            event_checker(event, window);
+        Drawing(window, Cells, W_HEIGHT, W_WIDTH);
     }
     return 0;
 }
