@@ -19,9 +19,9 @@ Cell::Cell(int x1 = 0, int y1 = 0){
     Back.setSize(sf::Vector2f(_size, _size));
     Back.setPosition(x * _size, y * _size);
     Body.setFillColor(sf::Color(255, 255, 255));
-    Body.setSize(sf::Vector2f(_size - 4, _size - 4));
+    Body.setSize(sf::Vector2f(_size - 2, _size - 2));
     Body.setPosition(x * _size, y * _size);
-    Body.move(2, 2);
+    Body.move(1, 1);
 }
 
 Cell& Cell::operator= (const Cell &Cell2){
@@ -35,4 +35,8 @@ Cell& Cell::operator= (const Cell &Cell2){
 void Cell::Draw(sf::RenderWindow &window){
     window.draw(Back);
     window.draw(Body);
+}
+
+int Cell::GetSize(){
+    return _size;
 }
