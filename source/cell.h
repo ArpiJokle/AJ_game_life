@@ -4,9 +4,11 @@
 
 #include <SFML/Graphics.hpp>
 
+const int CountOfCells = 40;
+
 class Cell{
 private:
-    const double _size = 40;
+    const double _size = 20;
     int x, y;
     bool Alive = false;
     sf::RectangleShape Back;
