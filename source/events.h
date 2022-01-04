@@ -4,7 +4,8 @@
 
 #include <SFML/Graphics.hpp>
 #include <iostream>
+#include <utility>
 
-void event_checker(sf::Event &event, sf::RenderWindow &window);
+std::pair < int, std::pair < int, int > > event_checker(sf::Event &event, sf::RenderWindow &window);
 
 #endif

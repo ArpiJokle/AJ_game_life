@@ -16,6 +16,8 @@ public:
     Cell& operator= (const Cell &Cell2);    
     void Draw(sf::RenderWindow &window);
     static int GetSize();
+    bool IsAlive();
+    void ChangeStatus();
 };
 
 #endif

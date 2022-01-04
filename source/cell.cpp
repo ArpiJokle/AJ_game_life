@@ -40,3 +40,12 @@ void Cell::Draw(sf::RenderWindow &window){
 int Cell::GetSize(){
     return _size;
 }
+
+bool Cell::IsAlive(){
+    return Alive;
+}
+
+void Cell::ChangeStatus(){
+    Alive = !Alive;
+    (Alive) ? (Body.setFillColor(sf::Color(0, 0, 0))) : (Body.setFillColor(sf::Color(255, 255, 255))); 
+}

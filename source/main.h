@@ -4,6 +4,8 @@
 
 #include <vector>
 #include <SFML/Graphics.hpp>
+#include <utility>
+#include <cmath>
 
 #include "events.h"
 #include "cell.h"
