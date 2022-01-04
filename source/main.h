@@ -19,4 +19,6 @@ sf::RenderWindow window(sf::VideoMode(W_HEIGHT, W_WIDTH), "Something");
 
 std::vector < std::vector < Cell > > Cells (W_HEIGHT / Cell::GetSize(), std::vector < Cell > (W_WIDTH / Cell::GetSize()));
 
+std::vector < std::pair < int, int > > AliveCells;
+
 #endif

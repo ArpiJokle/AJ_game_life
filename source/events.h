@@ -6,6 +6,8 @@
 #include <iostream>
 #include <utility>
 
-std::pair < int, std::pair < int, int > > event_checker(sf::Event &event, sf::RenderWindow &window);
+typedef std::pair < int, std::pair < int, int > > EventRet;
+
+EventRet event_checker(sf::Event &event, sf::RenderWindow &window);
 
 #endif

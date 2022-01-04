@@ -11,9 +11,14 @@ int main(){
     while(window.isOpen()){
         sf::Event event;
         while (window.pollEvent(event)){
-            std::pair< int, std::pair < int, int > > EventReturn = event_checker(event, window);
-            if(EventReturn.first == 1)
-                Cells[std::ceil(EventReturn.second.first / Cell::GetSize())][std::ceil(EventReturn.second.second / Cell::GetSize())].ChangeStatus();
+            EventRet EventReturn = event_checker(event, window);
+            if(EventReturn.first == 1){
+                int X = std::ceil(EventReturn.second.first / Cell::GetSize());
+                int Y = std::ceil(EventReturn.second.second / Cell::GetSize());
+                Cells[X][Y].ChangeStatus();
+                std::pair < int, int > _cell{X, Y};
+                (Cells[X][Y].IsAlive()) ? (AliveCells.push_back(_cell)) : (void(AliveCells.erase(find(AliveCells.begin(), AliveCells.end(), _cell))));
+            }
         }
         Drawing(window, Cells, W_HEIGHT, W_WIDTH);
     }
