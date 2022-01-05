@@ -105,14 +105,14 @@ bool CellsClear(std::vector < std::pair < int, int > > &AliveCells,
     return true;
 }
 
-bool SetAlive(std::pair < int, int > Coords, std::vector < std::pair < int, int > > &AliveCells, std::vector < std::vector < Cell > > &Cells){
+bool SetCurrentMode(std::pair < int, int > Coords, std::vector < std::pair < int, int > > &AliveCells, std::vector < std::vector < Cell > > &Cells, bool Mode){
     int X = std::ceil(Coords.first / Cell::GetSize());
     int Y = std::ceil(Coords.second / Cell::GetSize());
     if(X < 0) X = 0;
     if(X > Cells.size() - 1) X = Cells.size() - 1;
     if(Y < 0) Y = 0;
     if(Y > Cells[0].size() - 1) Y = Cells[0].size() - 1;
-    if(!Cells[X][Y].IsAlive()){
+    if(Cells[X][Y].IsAlive() == Mode){
         Cells[X][Y].ChangeStatus();
         std::pair < int, int > _cell{X, Y};
         AliveCells.push_back(_cell);
@@ -121,18 +121,17 @@ bool SetAlive(std::pair < int, int > Coords, std::vector < std::pair < int, int 
     return false;
 }
 
-bool SetDead(std::pair < int, int > Coords, std::vector < std::pair < int, int > > &AliveCells, std::vector < std::vector < Cell > > &Cells){
-    int X = std::ceil(Coords.first / Cell::GetSize());
-    int Y = std::ceil(Coords.second / Cell::GetSize());
-    if(X < 0) X = 0;
-    if(X > Cells.size() - 1) X = Cells.size() - 1;
-    if(Y < 0) Y = 0;
-    if(Y > Cells[0].size() - 1) Y = Cells[0].size() - 1;
-    if(Cells[X][Y].IsAlive()){
-        Cells[X][Y].ChangeStatus();
-        std::pair < int, int > _cell{X, Y};
-        AliveCells.erase(find(AliveCells.begin(), AliveCells.end(), _cell));
-        return true;
+bool SetRandom(std::vector < std::pair < int, int > > &AliveCells, std::vector < std::vector < Cell > > &Cells){
+    srand(time(0));
+    int MaxCellsNumber = Cells.size() * Cells[0].size();
+    int Iretations = (MaxCellsNumber*0.25) + std::rand() % int(MaxCellsNumber*0.75);
+    for(int i=0; i<Iretations; i++){
+        int X = rand() % Cells.size();
+        int Y = rand() % Cells[0].size();
+        if(!Cells[X][Y].IsAlive()){
+            Cells[X][Y].ChangeStatus();
+            AliveCells.push_back({X, Y});
+        }
     }
-    return false;
+    return true;
 }

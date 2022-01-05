@@ -5,6 +5,8 @@
 #include <vector>
 #include <cmath>
 #include <utility>
+#include <cstdlib>
+#include <ctime>
 
 #include "cell.h"
 
@@ -27,8 +29,10 @@ bool CellsChecker(std::vector < int > &Survive, std::vector < int > &BecomeAlive
 bool CellsClear(std::vector < std::pair < int, int > > &AliveCells,
                 std::vector < std::vector < Cell > > &Cells);
 
-bool SetAlive(std::pair < int, int > Coords, std::vector < std::pair < int, int > > &AliveCells, std::vector < std::vector < Cell > > &Cells);
+bool SetCurrentMode(std::pair < int, int > Coords, std::vector < std::pair < int, int > > &AliveCells, std::vector < std::vector < Cell > > &Cells, bool Mode);
 
 bool SetDead(std::pair < int, int > Coords, std::vector < std::pair < int, int > > &AliveCells, std::vector < std::vector < Cell > > &Cells);
+
+bool SetRandom(std::vector < std::pair < int, int > > &AliveCells, std::vector < std::vector < Cell > > &Cells);
 
 #endif

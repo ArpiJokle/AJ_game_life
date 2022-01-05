@@ -15,7 +15,7 @@ int main(){
             if(EventReturn.first == 3)
                 Changes = CellsClear(AliveCells, Cells);
             if(EventReturn.first == 4)
-                (MiddleMouseState) ? (Changes = SetAlive(EventReturn.second, AliveCells, Cells)) : (Changes = SetDead(EventReturn.second, AliveCells, Cells));
+                Changes = SetCurrentMode(EventReturn.second, AliveCells, Cells, MiddleMouseState);
             if(EventReturn.first == 5 && EventReturn.second.first == 0)
                 AutoMode = !AutoMode;
             if(EventReturn.first == 5 && EventReturn.second.first == 1 && AutoModeDelay > sf::milliseconds(25))
@@ -24,6 +24,8 @@ int main(){
                 AutoModeDelay += sf::milliseconds(25);
             if(EventReturn.first == 6)
                 MiddleMouseState = !MiddleMouseState;
+            if(EventReturn.first == 7)
+                Changes = SetRandom(AliveCells, Cells);
         }
         if(AutoMode && AutoModeTimer.getElapsedTime() > AutoModeDelay){
             Changes = CellsChecker(Survive, BecomeAlive, AliveCells, Cells);

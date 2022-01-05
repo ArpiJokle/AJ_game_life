@@ -15,7 +15,7 @@
 const int W_HEIGHT = 1200;
 const int W_WIDTH = 1000;
 
-bool MiddleMouseState = true;
+bool MiddleMouseState = false;
 
 bool AutoMode = false;
 sf::Clock AutoModeTimer;
