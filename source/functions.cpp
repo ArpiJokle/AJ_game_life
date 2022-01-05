@@ -49,6 +49,8 @@ void IsChange(std::vector < int > &Survive, std::vector < int > &BecomeAlive,
                 std::vector < std::vector < Cell > > &Cells,
                 std::pair < int, int > Coords,
                 std::vector < std::pair < int, int > > &CellsToChange){
+    if(Coords.first < 0 || Coords.second < 0 || Coords.first > Cells.size() - 1 || Coords.second > Cells[0].size() - 1)
+        return;
     if(Cells[Coords.first][Coords.second].IsAlive() && (std::find(Survive.begin(), Survive.end(),NumberOfNeighbors(Coords, AliveCells)) == Survive.end()))
         if(find(CellsToChange.begin(), CellsToChange.end(), Coords) == CellsToChange.end())
             CellsToChange.push_back(Coords);
