@@ -17,9 +17,9 @@ const int W_WIDTH = 1000;
 
 bool MiddleMouseState = true;
 
-bool AutoMod = false;
-sf::Clock AutoModTimer;
-sf::Time AutoModDelay = sf::milliseconds(300);
+bool AutoMode = false;
+sf::Clock AutoModeTimer;
+sf::Time AutoModeDelay = sf::milliseconds(300);
 
 sf::RenderWindow window(sf::VideoMode(W_HEIGHT, W_WIDTH), "GameLife");
 
