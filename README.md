@@ -15,4 +15,5 @@ How to compile:
 
 If you need to resize the window, go to source/main.h and change W_HEIGHT and W_WIDTH manually;
 If you need to change the size of the cells go to source/cell.h and change the _size manually;
+If you need to change the rules go to source/main.h and change the Survive/BecomeAlive manually;
 The number of cells depends on the size of the window and the size of the cells themselves;
