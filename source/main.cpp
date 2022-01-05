@@ -14,16 +14,16 @@ int main(){
                 Changes = CellsChecker(Survive, BecomeAlive, AliveCells, Cells);
             if(EventReturn.first == 3)
                 Changes = CellsClear(AliveCells, Cells);
-            if(EventReturn.first == 4 && MiddleMouseTimer.getElapsedTime() > MiddleMouseDelay){
-                Changes = ChangeOnClick(EventReturn.second, AliveCells, Cells);
-                MiddleMouseTimer.restart();
-            }
+            if(EventReturn.first == 4)
+                (MiddleMouseState) ? (Changes = SetAlive(EventReturn.second, AliveCells, Cells)) : (Changes = SetDead(EventReturn.second, AliveCells, Cells));
             if(EventReturn.first == 5 && EventReturn.second.first == 0)
                 AutoMod = !AutoMod;
             if(EventReturn.first == 5 && EventReturn.second.first == 1 && AutoModDelay > sf::milliseconds(50))
                 AutoModDelay -= sf::milliseconds(50);
             if(EventReturn.first == 5 && EventReturn.second.first == 2 && AutoModDelay < sf::milliseconds(5000))
                 AutoModDelay += sf::milliseconds(50);
+            if(EventReturn.first == 6)
+                MiddleMouseState = !MiddleMouseState;
         }
         if(AutoMod && AutoModTimer.getElapsedTime() > AutoModDelay){
             Changes = CellsChecker(Survive, BecomeAlive, AliveCells, Cells);

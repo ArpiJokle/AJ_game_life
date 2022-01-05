@@ -15,8 +15,7 @@
 const int W_HEIGHT = 1200;
 const int W_WIDTH = 1000;
 
-sf::Clock MiddleMouseTimer;
-sf::Time MiddleMouseDelay = sf::milliseconds(50);
+bool MiddleMouseState = true;
 
 bool AutoMod = false;
 sf::Clock AutoModTimer;

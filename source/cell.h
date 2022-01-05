@@ -5,7 +5,7 @@
 #include <SFML/Graphics.hpp>
 class Cell{
 private:
-    const static int _size = 10;
+    const static int _size = 16;
     int x, y;
     bool Alive = false;
     sf::RectangleShape Back;

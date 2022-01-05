@@ -33,6 +33,7 @@ EventRet event_checker(sf::Event &event, sf::RenderWindow &window){
     if(event.type == sf::Event::KeyPressed && (sf::Keyboard::isKeyPressed(sf::Keyboard::Down))){
         Return.first = 5;
         Return.second.first = 2;
-    }
+    }if(event.type == sf::Event::KeyPressed && (sf::Keyboard::isKeyPressed(sf::Keyboard::S)))
+        Return.first = 6;
     return Return;
 }

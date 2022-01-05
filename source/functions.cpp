@@ -38,6 +38,10 @@ int NumberOfNeighbors(std::pair < int, int > _cell, const std::vector < std::pai
 bool ChangeOnClick(std::pair < int, int > Coords, std::vector < std::pair < int, int > > &AliveCells, std::vector < std::vector < Cell > > &Cells){
     int X = std::ceil(Coords.first / Cell::GetSize());
     int Y = std::ceil(Coords.second / Cell::GetSize());
+    if(X < 0) X = 0;
+    if(X > Cells.size() - 1) X = Cells.size() - 1;
+    if(Y < 0) Y = 0;
+    if(Y > Cells[0].size() - 1) Y = Cells[0].size() - 1;
     Cells[X][Y].ChangeStatus();
     std::pair < int, int > _cell{X, Y};
     (Cells[X][Y].IsAlive()) ? (AliveCells.push_back(_cell)) : (void(AliveCells.erase(find(AliveCells.begin(), AliveCells.end(), _cell))));
@@ -99,4 +103,36 @@ bool CellsClear(std::vector < std::pair < int, int > > &AliveCells,
         AliveCells.erase(AliveCells.begin());
     }
     return true;
+}
+
+bool SetAlive(std::pair < int, int > Coords, std::vector < std::pair < int, int > > &AliveCells, std::vector < std::vector < Cell > > &Cells){
+    int X = std::ceil(Coords.first / Cell::GetSize());
+    int Y = std::ceil(Coords.second / Cell::GetSize());
+    if(X < 0) X = 0;
+    if(X > Cells.size() - 1) X = Cells.size() - 1;
+    if(Y < 0) Y = 0;
+    if(Y > Cells[0].size() - 1) Y = Cells[0].size() - 1;
+    if(!Cells[X][Y].IsAlive()){
+        Cells[X][Y].ChangeStatus();
+        std::pair < int, int > _cell{X, Y};
+        AliveCells.push_back(_cell);
+        return true;
+    }
+    return false;
+}
+
+bool SetDead(std::pair < int, int > Coords, std::vector < std::pair < int, int > > &AliveCells, std::vector < std::vector < Cell > > &Cells){
+    int X = std::ceil(Coords.first / Cell::GetSize());
+    int Y = std::ceil(Coords.second / Cell::GetSize());
+    if(X < 0) X = 0;
+    if(X > Cells.size() - 1) X = Cells.size() - 1;
+    if(Y < 0) Y = 0;
+    if(Y > Cells[0].size() - 1) Y = Cells[0].size() - 1;
+    if(Cells[X][Y].IsAlive()){
+        Cells[X][Y].ChangeStatus();
+        std::pair < int, int > _cell{X, Y};
+        AliveCells.erase(find(AliveCells.begin(), AliveCells.end(), _cell));
+        return true;
+    }
+    return false;
 }
