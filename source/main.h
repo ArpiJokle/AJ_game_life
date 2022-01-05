@@ -16,13 +16,13 @@ const int W_HEIGHT = 1200;
 const int W_WIDTH = 1000;
 
 sf::Clock MiddleMouseTimer;
-sf::Time MiddleMouseDelay = sf::milliseconds(75);
+sf::Time MiddleMouseDelay = sf::milliseconds(50);
 
 bool AutoMod = false;
 sf::Clock AutoModTimer;
 sf::Time AutoModDelay = sf::milliseconds(300);
 
-sf::RenderWindow window(sf::VideoMode(W_HEIGHT, W_WIDTH), "Something");
+sf::RenderWindow window(sf::VideoMode(W_HEIGHT, W_WIDTH), "GameLife");
 
 std::vector < std::vector < Cell > > Cells (W_HEIGHT / Cell::GetSize(), std::vector < Cell > (W_WIDTH / Cell::GetSize()));
 

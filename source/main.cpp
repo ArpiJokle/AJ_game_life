@@ -22,7 +22,7 @@ int main(){
                 AutoMod = !AutoMod;
             if(EventReturn.first == 5 && EventReturn.second.first == 1 && AutoModDelay > sf::milliseconds(50))
                 AutoModDelay -= sf::milliseconds(50);
-            if(EventReturn.first == 5 && EventReturn.second.first == 2)
+            if(EventReturn.first == 5 && EventReturn.second.first == 2 && AutoModDelay < sf::milliseconds(5000))
                 AutoModDelay += sf::milliseconds(50);
         }
         if(AutoMod && AutoModTimer.getElapsedTime() > AutoModDelay){
