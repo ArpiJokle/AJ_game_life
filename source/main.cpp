@@ -17,17 +17,17 @@ int main(){
             if(EventReturn.first == 4)
                 (MiddleMouseState) ? (Changes = SetAlive(EventReturn.second, AliveCells, Cells)) : (Changes = SetDead(EventReturn.second, AliveCells, Cells));
             if(EventReturn.first == 5 && EventReturn.second.first == 0)
-                AutoMod = !AutoMod;
-            if(EventReturn.first == 5 && EventReturn.second.first == 1 && AutoModDelay > sf::milliseconds(50))
-                AutoModDelay -= sf::milliseconds(50);
-            if(EventReturn.first == 5 && EventReturn.second.first == 2 && AutoModDelay < sf::milliseconds(5000))
-                AutoModDelay += sf::milliseconds(50);
+                AutoMode = !AutoMode;
+            if(EventReturn.first == 5 && EventReturn.second.first == 1 && AutoModeDelay > sf::milliseconds(25))
+                AutoModeDelay -= sf::milliseconds(25);
+            if(EventReturn.first == 5 && EventReturn.second.first == 2 && AutoModeDelay < sf::milliseconds(2000))
+                AutoModeDelay += sf::milliseconds(25);
             if(EventReturn.first == 6)
                 MiddleMouseState = !MiddleMouseState;
         }
-        if(AutoMod && AutoModTimer.getElapsedTime() > AutoModDelay){
+        if(AutoMode && AutoModeTimer.getElapsedTime() > AutoModeDelay){
             Changes = CellsChecker(Survive, BecomeAlive, AliveCells, Cells);
-            AutoModTimer.restart();
+            AutoModeTimer.restart();
             Changes = true;
         }
         if(Changes)
