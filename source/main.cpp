@@ -12,6 +12,8 @@ int main(){
                 Changes = ChangeOnClick(EventReturn.second, AliveCells, Cells);
             if(EventReturn.first == 2)
                 Changes = CellsChecker(Survive, BecomeAlive, AliveCells, Cells);
+            if(EventReturn.first == 3)
+                Changes = CellsClear(AliveCells, Cells);
         }
         if(Changes)
             Drawing(window, Cells, W_HEIGHT, W_WIDTH);

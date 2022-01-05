@@ -91,3 +91,12 @@ bool CellsChecker(std::vector < int > &Survive, std::vector < int > &BecomeAlive
     }
     return true;
 }
+
+bool CellsClear(std::vector < std::pair < int, int > > &AliveCells,
+                std::vector < std::vector < Cell > > &Cells){
+    while(AliveCells.size() != 0){
+        Cells[AliveCells[0].first][AliveCells[0].second].ChangeStatus();
+        AliveCells.erase(AliveCells.begin());
+    }
+    return true;
+}

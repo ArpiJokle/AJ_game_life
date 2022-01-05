@@ -24,4 +24,7 @@ bool CellsChecker(std::vector < int > &Survive, std::vector < int > &BecomeAlive
                 std::vector < std::pair < int, int > > &AliveCells,
                 std::vector < std::vector < Cell > > &Cells);
 
+bool CellsClear(std::vector < std::pair < int, int > > &AliveCells,
+                std::vector < std::vector < Cell > > &Cells);
+
 #endif

@@ -15,5 +15,7 @@ EventRet event_checker(sf::Event &event, sf::RenderWindow &window){
     }
     if(event.type == sf::Event::MouseButtonPressed && sf::Mouse::isButtonPressed(sf::Mouse::Right))
         Return.first = 2;
+    if(event.type == sf::Event::KeyPressed && (sf::Keyboard::isKeyPressed(sf::Keyboard::C)))
+        Return.first = 3;
     return Return;
 }

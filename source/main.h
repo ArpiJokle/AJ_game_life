@@ -5,6 +5,7 @@
 #include <vector>
 #include <SFML/Graphics.hpp>
 #include <utility>
+#include <iostream>
 
 #include "events.h"
 #include "cell.h"
