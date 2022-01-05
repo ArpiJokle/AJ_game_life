@@ -17,5 +17,22 @@ EventRet event_checker(sf::Event &event, sf::RenderWindow &window){
         Return.first = 2;
     if(event.type == sf::Event::KeyPressed && (sf::Keyboard::isKeyPressed(sf::Keyboard::C)))
         Return.first = 3;
+    if(sf::Mouse::isButtonPressed(sf::Mouse::Middle)){
+        Return.first = 4;
+        Return.second.first = sf::Mouse::getPosition(window).x;
+        Return.second.second = sf::Mouse::getPosition(window).y;
+    }
+    if(event.type == sf::Event::KeyPressed && (sf::Keyboard::isKeyPressed(sf::Keyboard::Space))){
+        Return.first = 5;
+        Return.second.first = 0;
+    }
+    if(event.type == sf::Event::KeyPressed && (sf::Keyboard::isKeyPressed(sf::Keyboard::Up))){
+        Return.first = 5;
+        Return.second.first = 1;
+    }
+    if(event.type == sf::Event::KeyPressed && (sf::Keyboard::isKeyPressed(sf::Keyboard::Down))){
+        Return.first = 5;
+        Return.second.first = 2;
+    }
     return Return;
 }
